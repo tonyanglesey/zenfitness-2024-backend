@@ -191,16 +191,23 @@ app.post('/create-checkout-session', async (req, res) => {
         let priceId;
         switch (selectedPack){
             case 'price_premium_monthly':
-            case 'price_studio_premium_monthly':    
-            {
+                {
                 priceId = process.env.PRO_MONTHLY;
                 break;
-            }
-            case 'price_premium_annual':
-            case 'price_studio_premium_annual':
+                }
+            case 'price_studio_premium_monthly':    
             {
+                    priceId = process.env.STUDIO_MONTHLY
+                    break;
+            }
+            case 'price_premium_annual':{
                 priceId = process.env.PRO_ANNUAL;
                 break;
+            }
+            case 'price_studio_premium_annual':
+            {
+                    priceId = process.env.STUDIO_YEARLY;
+                    break;
             }
             default:{
                 priceId = process.env.PRO_MONTHLY;
