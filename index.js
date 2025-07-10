@@ -215,7 +215,7 @@ app.post('/create-checkout-session', async (req, res) => {
             }
 
         }
-        console.log(priceId);
+        console.log('PRICEID: ', priceId);
     try {
         const session = await stripe.checkout.sessions.create({
             mode: 'subscription',
